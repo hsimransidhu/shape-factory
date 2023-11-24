@@ -44,7 +44,7 @@ main {
 }
 
 .container {
- height: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,10 +96,10 @@ button:hover {
   padding: 10px;
   padding-bottom: 40px;
   width: 520px;
- height: 1200px;
-  flex-wrap: wrap; /* Allow shapes to wrap to the next line */
-  justify-content: center; /* Center the shapes horizontally */
-  align-items: flex-start; 
+  height: 1200px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   border-radius: 4px;
   margin-right: 10px;
   margin-bottom: 100px;
