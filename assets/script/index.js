@@ -1,7 +1,4 @@
- 'use strict';
- 
- // Import utility functions
-import { onEvent, select } from './utils.js';  // Adjust the path as needed
+'use strict';
 
 class Shape {
   constructor(name, colour) {
@@ -16,9 +13,9 @@ class Shape {
   get colour() {
     return this._colour;
   }
-
-  static getColorName(colorCode) {
-    const colorMap = {
+   
+  static getColor(colorCode) {
+    const colors = {
       '#09f': 'Blue',
       '#9f0': 'Green',
       '#f90': 'Orange',
@@ -26,47 +23,40 @@ class Shape {
       '#90f': 'Purple'
     };
 
-    return colorMap[colorCode] || colorCode;
+    return colors[colorCode] || colorCode;
   }
 
   getInfo() {
-    const colorName = Shape.getColorName(this.colour);
+    const colorName = Shape.getColor(this.colour);
     return `Shape: ${this.name}, Colour: ${colorName}`;
   }
 }
 
 let shapeCount = 0;
 const maxShapes = 24;
-
 function createShape() {
   if (shapeCount < maxShapes) {
-    let shapeSelect = select("#shapeSelect");
-    let colorSelect = select("#colorSelect");
-    let shapeContainer = select("#shapeContainer");
-    let h3 = select('#text');
+     let shapeSelect = document.getElementById("shapeSelect");
+    let colorSelect = document.getElementById("colorSelect");
+    let shapeContainer = document.getElementById("shapeContainer");
+    let h3 = document.getElementById('text');
     let selectedShape = shapeSelect.value;
     let selectedColor = colorSelect.value;
     let newShape = new Shape(selectedShape, selectedColor);
-    let shapeDiv = create("div");
+    let shapeDiv = document.createElement("div");
 
     shapeDiv.className = `shape ${selectedShape}`;
     shapeDiv.style.backgroundColor = selectedColor;
-    onEvent(shapeDiv, 'click', function () {
+    shapeDiv.onclick = function() {
       h3.textContent = newShape.getInfo();
-    });
+    };
 
     shapeContainer.appendChild(shapeDiv);
     shapeCount++;
 
     h3.textContent = `Shapes created: ${shapeCount}/${maxShapes}`;
   } else {
-    const h3 = select('#text');
+    const h3 = document.getElementById('text');
     h3.textContent = 'Storage is full (24 shapes created)';
   }
 }
-
-// Add event listener to the button
-document.addEventListener("DOMContentLoaded", function () {
-  const createButton = select('#createButton');
-  onEvent(createButton, 'click', createShape);
-});
