@@ -4,35 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shape Creator</title>
- <link rel="stylesheet" href="assets/style/index.css">
- <script src="assets/script/index.js" defer></script>
+  <link rel="stylesheet" href="assets/style/index.css">
+  <script src="assets/script/index.js" defer></script>
 </head>
 <body>
-  <main> 
-    <div class="container"> 
+  <main>
+    <div class="container">
       <h1>Shape Factory</h1>
-      <div class="row"> 
-  <select id="shapeSelect" class="select">
-    <option value="circle">Circle</option>
-    <option value="square">Square</option>
-  </select>
- 
-  <select id="colorSelect" class="select">
-    <option value="#09f">Blue</option>
-    <option value="#9f0">Green</option>
-    <option value="#f90">Orange</option>
-    <option value="#f09">Pink</option>
-    <option value="#90f">Purple</option>
-  </select>
- 
-  <button onclick="createShape()">Create</button>
-</div>
-  <div id="shapeContainer"> 
-  </div>
-    <h3 id="text"></h3>
-
- 
-</div>
-</main>
+      <div class="row">
+        <select id="shapeSelect" class="select">
+          <option value="circle">Circle</option>
+          <option value="square">Square</option>
+        </select>
+        <select id="colorSelect" class="select">
+          <option value="#09f">Blue</option>
+          <option value="#9f0">Green</option>
+          <option value="#f90">Orange</option>
+          <option value="#f09">Pink</option>
+          <option value="#90f">Purple</option>
+        </select>
+        <button onclick="createShape()">Create</button>
+      </div>
+      <div id="shapeContainer">
+      </div>
+      <h3 id="text"></h3>
+    </div>
+  </main>
 </body>
 </html>
